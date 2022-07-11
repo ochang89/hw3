@@ -40,16 +40,18 @@ public class SumOfDiagonals
     public static void sumOfDiagonals(String[][] x)
     {
         int sum = 0;
-        // for every i
+        // for every array/row
             for (int i = 0; i < x.length; i++) {
-                // i = 0, arr0
+                // check if its a perfect square: x length * array length
                 if (x.length != x[i].length) {
+                    // if not, throw exception
                     throw new IllegalArgumentException();
                 }
+                // if element contains letters, throw exception
                 else if(x[i][i].contains("[a-zA-Z]")) {
-                    // if array is a square
                     throw new NumberFormatException();
                 }
+                // add number from row to sum
                 sum += Integer.parseInt(x[i][i]);
             }
             System.out.println(sum);

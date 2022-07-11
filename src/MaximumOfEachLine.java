@@ -4,7 +4,7 @@ import java.io.*;
 public class MaximumOfEachLine {
     public static void main(String[] args) {
         // read data
-        File file = new File("C:\\Users\\OliverChang\\IdeaProjects\\hw3p1\\src\\data.txt");
+        File file = new File("data.txt");
 
         try (Scanner input = new Scanner(file)){
             while(input.hasNext()) {
@@ -16,12 +16,11 @@ public class MaximumOfEachLine {
 
                 for (int i = 0; i < nums.length-1; i++) {
                     numArray[i] = Integer.parseInt(nums[i]);
-                    max = Math.max(numArray[i], numArray[i+1]);
-                    // if statement
-//                    System.out.print(nums[i] + " ");
-//                    System.out.print("numArray: " + numArray[i] + " ");
+                    if(numArray[i] > max) {
+                        max = numArray[i];
+                    }
                 }
-                System.out.println(max);
+                System.out.format("%s %s\tMax: %d\n",sp[0],sp[1],max);
             }
         }
         catch(FileNotFoundException ex){
